@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("./asserts/loginbg.jpg"); /* Using the uploaded image as background */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+        .login-container {
+            max-width: 400px;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.9));
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        .form-control {
+            border-radius: 25px;
+        }
+        .btn-primary {
+            border-radius: 25px;
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        #errorMessage {
+            font-weight: bold;
+        }
+        @media (max-width: 576px) {
+            .login-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="psid">PSID</label>
+                <input type="text" class="form-control" id="psid" placeholder="Enter PSID" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <div id="errorMessage" class="text-danger mt-2"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const psid = parseInt(document.getElementById('psid').value.trim(), 10);
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const users = [
+                { psid: 45393711, name: 'Vamsi', role: 'admin', password: "vamsi" },
+                { psid: 45393712, name: 'Kamalakar', role: 'manager', password: "kamalakar" },
+                { psid: 45393713, name: 'Kushal', role: 'manager', password: "kushal" },
+                { psid: 45393714, name: 'Kushi', role: 'employee', password: "kushi" },
+                { psid: 45393715, name: 'Ankitha', role: 'employee', password: "ankitha" },
+                { psid: 45393716, name: 'Kavya', role: 'employee', password: "kavya" },
+                { psid: 45393717, name: 'Porush', role: 'employee', password: "porush" },
+                { psid: 45393718, name: 'Rahul', role: 'employee', password: "rahul" },
+            ];
+
+            const user = users.find(user => user.psid === psid && user.password === password);
+
+            if (user) {
+                errorMessage.textContent = '';
+                switch (user.role) {
+                    case 'admin':
+                        window.location.href = 'admin.html';
+                        break;
+                    case 'manager':
+                        window.location.href = 'manager.html';
+                        break;
+                    case 'employee':
+                        window.location.href = 'employee.html';
+                        break;
+                }
+            } else {
+                errorMessage.textContent = 'Invalid PSID or Password';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Room Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('./asserts/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #ffffff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .btn-primary {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="hero-title">Welcome to the Meeting Room Application</h1>
+        <p class="hero-subtitle">Efficiently book and manage meeting rooms for your team</p>
+        <button class="btn btn-primary" onclick="goToLogin()">Login</button>
+    </div>
+
+    <script>
+        function goToLogin() {
+            // Replace this with the actual login page URL
+            window.location.href = 'login.html';
+        }
+    </script>
+
+</body>
+</html>
