@@ -45,7 +45,7 @@ java
     ├── MeetingRoomRequest.java
     ├── MeetingRoomTypeRequired.java
     └── User.java
-
+```
 
 ### Technologies Used
 - Java: Programming language for the backend logic.
